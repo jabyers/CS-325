@@ -4,41 +4,36 @@
 #include <iostream>
 using namespace std;
 
-
-
-class Object {
-
+class Object 
+{
 public:
 	// List of class variables
 	int speed;
-	double direction;
+	int maxSpeed;
 	double xcoord;
 	double ycoord;
-	bool isKillable;
-	int maxSpeed;
+	double direction;
 	int height;
 	int width;
 	bool alive;
-
+	bool isKillable;
+		
 	// List of Methods
 	Object();
-	Object(int dSpeed, double dDirection, double dX, double dY, bool dKillable, int dmaxSpeed, int dHeight, int dWeigth, bool dAlive);
-	void setSpeed(int newSpeed);
-	int getSpeed();
-	void setDirection(double newDirection);
-	double getDirection();
-	void Move();
-	void Shoot();
-	void Die();
-	void setX(double newX);
-	double getX();
-	void setY(double newY);
-	double getY();
+	Object(int dSpeed, double dDirection, double dX, double dY, bool dKillable, 
+		int dmaxSpeed, int dHeight, int dWeigth, bool dAlive);
 	~Object();
 
-	
-
-
-}
-
+	int getSpeed();
+	void setSpeed(int newSpeed);
+	double getLocation();
+	void setLocation(double newX, double newY);
+	double getDirection();
+	void setDirection(double newDirection);
+	double getHeight();
+	void setHeight(int height);
+	void Move(int speed);
+	void Shoot();
+	void Die();
+};
 #endif
