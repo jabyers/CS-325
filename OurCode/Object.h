@@ -26,13 +26,11 @@ public:
 
 	int getSpeed();
 	void setSpeed(int newSpeed);
-	double getX();
-	void setX(double newX);
-	double getY();
-	void setY(double newY);
+	double getLocation();
+	void setLocation(double newX, double newY);
 	double getDirection();
 	void setDirection(double newDirection);
-	void Move();
+	void Move(int speed);
 	void Shoot();
 	void Die();
 };

@@ -51,27 +51,15 @@ using namespace std;
 	}
 
 	//Gets the X coordinate of the object
-	double Object::getX()
+	double Object::getLocation()
 	{
 		return xcoord;
 	}
 
 	//Sets the X coordinate for the location of the object.
-	void Object::setX(double newX)
+	void Object::setLocation(double newX, double newY)
 	{
 		xcoord = newX;
-	}
-
-	//Gets the Y coordinate of the object.
-	double Object::getY()
-	{
-		return ycoord;
-	}
-
-	//Sets the Y coordinate for the location of the object
-	void Object::setY(double newY)
-	{
-		ycoord = newY;
 	}
 
 	//Gets the direction of the Object
@@ -86,9 +74,9 @@ using namespace std;
 		direction = newDirection;
 	}
 
-	void Object::Move()
+	void Object::Move(int speed)
 	{
-
+		//vector * speed = vector with some length to calc new x and y
 	}
 
 	void Object::Shoot()
