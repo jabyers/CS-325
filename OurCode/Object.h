@@ -30,6 +30,8 @@ public:
 	void setLocation(double newX, double newY);
 	double getDirection();
 	void setDirection(double newDirection);
+	double getHeight();
+	void setHeight(int height);
 	void Move(int speed);
 	void Shoot();
 	void Die();

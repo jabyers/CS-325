@@ -74,6 +74,15 @@ using namespace std;
 		direction = newDirection;
 	}
 
+	double getHeight()
+	{
+		return height;
+	}
+	void setHeight(int newHeight)
+	{
+		height = newHeight;
+	}
+
 	void Object::Move(int speed)
 	{
 		//vector * speed = vector with some length to calc new x and y
