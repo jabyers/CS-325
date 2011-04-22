@@ -95,7 +95,8 @@ int main(int argc, char* argv[])
 				if(GetAsyncKeyState(VK_DOWN)) // the DOWN arrow was pressed, let's do something
 		{
 		delta = -.1;
-		viewPos.setY(viewPos.getY() + delta);
+		viewPos.setY(viewPos.getY() + cos(-viewDir.getAngle())*delta);
+		viewPos.setX(viewPos.getX() + sin(-viewDir.getAngle())*delta);
 		window.SetViewPosition(viewPos);
 		cout << "view pos: " << viewPos.toString() << endl;
 
@@ -106,7 +107,8 @@ int main(int argc, char* argv[])
 			if(GetAsyncKeyState(VK_UP)) // the UP arrow was pressed, let's do something
 		{
 		delta = .1;
-		viewPos.setY(viewPos.getY() + delta);
+		viewPos.setY(viewPos.getY() + cos(-viewDir.getAngle())*delta);
+		viewPos.setX(viewPos.getX() + sin(-viewDir.getAngle())*delta);
 		window.SetViewPosition(viewPos);
 		cout << "view pos: " << viewPos.toString() << endl;
 
