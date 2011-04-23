@@ -26,14 +26,14 @@ int main(int argc, char* argv[])
 
 	//Points 41, 42, 45, 46 control the sandbox. DON"T MESS WITH THEM!
 
-	Point3D p30(0.5,  0.5, 0.5);
-	Point3D p31(0.5, -0.5, 0.5);
-	Point3D p32(-0.5,-0.5, 0.5);
-	Point3D p33(-0.5, 0.5, 0.5);
-	Point3D p34(0.5,  0.5, -0.5);
-	Point3D p35(0.5, -0.5, -0.5);
-	Point3D p36(-0.5,-0.5, -0.5);
-	Point3D p37(-0.5, 0.5, -0.5);
+	Point3D p30(0.5,  0.5,-3.5);
+	Point3D p31(0.5, -0.5,-3.5);
+	Point3D p32(-0.5,-0.5,-3.5);
+	Point3D p33(-0.5, 0.5,-3.5);
+	Point3D p34(0.5,  0.5,-1.5);
+	Point3D p35(0.5, -0.5,-1.5);
+	Point3D p36(-0.5,-0.5,-1.5);
+	Point3D p37(-0.5, 0.5,-1.5);
 
 	Point3D p40( -70.8, 28.8, -50.8);
 	Point3D p41( 50.8,-2.8,  50.8);
@@ -43,8 +43,26 @@ int main(int argc, char* argv[])
 	Point3D p45( 50.8,-2.8, -50.8);
 	Point3D p46(-50.8,-2.8, -50.8);
 	Point3D p47(-84.8,-2.8, -50.8);
-	Point3D p48(-60.2,22.3, -50.8);
+	Point3D p49(-8.5,22.0, 50.8);
+	Point3D p48(70,20,50.8);
 
+	Point3D p50(3.5,  0.5,-3.5);
+	Point3D p51(3.5, -0.5,-3.5);
+	Point3D p52(2.5,-0.5,-3.5);
+	Point3D p53(2.5, 0.5,-3.5);
+	Point3D p54(3.5,  0.5,-1.5);
+	Point3D p55(3.5, -0.5,-1.5);
+	Point3D p56(2.5,-0.5,-1.5);
+	Point3D p57(2.5, 0.5,-1.5);
+
+	Point3D p60(3.5,  0.5, 13.5);
+	Point3D p61(3.5, -0.5, 13.5);
+	Point3D p62(2.5,-0.5,  13.5);
+	Point3D p63(2.5, 0.5,  13.5);
+	Point3D p64(3.5,  0.5, 16.5);
+	Point3D p65(3.5, -0.5, 16.5);
+	Point3D p66(2.5,-0.5,  16.5);
+	Point3D p67(2.5, 0.5,  16.5);
 
 	
 
@@ -73,6 +91,33 @@ int main(int argc, char* argv[])
 		window.DrawLineInSpace(p32, p36);
 		window.DrawLineInSpace(p33, p37);
 
+		window.DrawLineInSpace(p50, p51);
+		window.DrawLineInSpace(p51, p52);
+		window.DrawLineInSpace(p52, p53);
+		window.DrawLineInSpace(p53, p50);
+		window.DrawLineInSpace(p54, p55);
+		window.DrawLineInSpace(p55, p56);
+		window.DrawLineInSpace(p56, p57);
+		window.DrawLineInSpace(p57, p54);
+		window.DrawLineInSpace(p50, p54);
+		window.DrawLineInSpace(p51, p55);
+		window.DrawLineInSpace(p52, p56);
+		window.DrawLineInSpace(p53, p57);
+
+		window.DrawLineInSpace(p60, p61);
+		window.DrawLineInSpace(p61, p62);
+		window.DrawLineInSpace(p62, p63);
+		window.DrawLineInSpace(p63, p60);
+		window.DrawLineInSpace(p64, p65);
+		window.DrawLineInSpace(p65, p66);
+		window.DrawLineInSpace(p66, p67);
+		window.DrawLineInSpace(p67, p64);
+		window.DrawLineInSpace(p60, p64);
+		window.DrawLineInSpace(p61, p65);
+		window.DrawLineInSpace(p62, p66);
+		window.DrawLineInSpace(p63, p67);
+
+
 		//window.DrawLineInSpace(p40, p41);
 		window.DrawLineInSpace(p41, p42);
 		window.DrawLineInSpace(p42, p43);
@@ -86,6 +131,11 @@ int main(int argc, char* argv[])
 		window.DrawLineInSpace(p42, p46);
 		window.DrawLineInSpace(p43, p47);
 		window.DrawLineInSpace(p40, p47);
+		window.DrawLineInSpace(p41, p49);
+		window.DrawLineInSpace(p42, p49);
+		window.DrawLineInSpace(p41, p48);
+		window.DrawLineInSpace(p45, p48);
+
 
 				if(GetAsyncKeyState(VK_DOWN)) // the DOWN arrow was pressed, let's do something
 		{
