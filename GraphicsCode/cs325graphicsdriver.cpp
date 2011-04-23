@@ -24,6 +24,8 @@ int main(int argc, char* argv[])
 	Point2D p3(CS325Graphics::X_MIN, CS325Graphics::Y_MIN);
 	Point2D p4(CS325Graphics::X_MAX, CS325Graphics::Y_MAX);
 
+	//Points 41, 42, 45, 46 control the sandbox. DON"T MESS WITH THEM!
+
 	Point3D p30(0.5,  0.5, 0.5);
 	Point3D p31(0.5, -0.5, 0.5);
 	Point3D p32(-0.5,-0.5, 0.5);
@@ -33,39 +35,18 @@ int main(int argc, char* argv[])
 	Point3D p36(-0.5,-0.5, -0.5);
 	Point3D p37(-0.5, 0.5, -0.5);
 
-	//for(int i = 0; i < SCREEN_TEST; i++){
-
-	//	cout << "draw lines" << endl;
-	//	//window.DrawLineOnScreen(p1, p2);
-	//	//window.DrawLineOnScreen(p4, p3);
-
-	//	//window.DrawLineInSpace(p30, p31);
-	//	//window.DrawLineInSpace(p31, p32);
-	//	//window.DrawLineInSpace(p32, p33);
-	//	//window.DrawLineInSpace(p33, p30);
-	//	//window.DrawLineInSpace(p34, p35);
-	//	//window.DrawLineInSpace(p35, p36);
-	//	//window.DrawLineInSpace(p36, p37);
-	//	//window.DrawLineInSpace(p37, p34);
-	//	//window.DrawLineInSpace(p30, p34);
-	//	//window.DrawLineInSpace(p31, p35);
-	//	//window.DrawLineInSpace(p32, p36);
-	//	//window.DrawLineInSpace(p33, p37);
-
-	//	
+	Point3D p40( -70.8, 28.8, -50.8);
+	Point3D p41( 50.8,-2.8,  50.8);
+	Point3D p42(-50.8,-2.8,  50.8);
+	Point3D p43(-58.8, 25.8,  50.8);
+	Point3D p44( 50.8, 50.8, -50.8);
+	Point3D p45( 50.8,-2.8, -50.8);
+	Point3D p46(-50.8,-2.8, -50.8);
+	Point3D p47(-84.8,-2.8, -50.8);
+	Point3D p48(-60.2,22.3, -50.8);
 
 
-
-	//	//p1.setX(p1.getX() + delta);
-	//	//if(p1.getX() > CS325Graphics::X_MAX) delta *=-1;
-	//	//if(p1.getX() < CS325Graphics::X_MIN) delta *=-1;
-
-	//	
-
-	//	window.DisplayNow();
-	//	Sleep(50);
-	//	
-	//}
+	
 
 	Point2D viewPos;
 	Vector2D viewDir;
@@ -76,7 +57,7 @@ int main(int argc, char* argv[])
 	// move view position
 
 	for(int i = 0; i < MOVE_TEST; i){
-		window.DrawLineOnScreen(p1, p2);
+		/*window.DrawLineOnScreen(p1, p2);*/
 		//window.DrawLineOnScreen(p4, p3);
 
 		window.DrawLineInSpace(p30, p31);
@@ -91,6 +72,20 @@ int main(int argc, char* argv[])
 		window.DrawLineInSpace(p31, p35);
 		window.DrawLineInSpace(p32, p36);
 		window.DrawLineInSpace(p33, p37);
+
+		//window.DrawLineInSpace(p40, p41);
+		window.DrawLineInSpace(p41, p42);
+		window.DrawLineInSpace(p42, p43);
+		//window.DrawLineInSpace(p43, p40);
+		//window.DrawLineInSpace(p44, p45);
+		window.DrawLineInSpace(p45, p46);
+		//window.DrawLineInSpace(p46, p47);
+		//window.DrawLineInSpace(p47, p44);
+		window.DrawLineInSpace(p40, p45);
+		window.DrawLineInSpace(p41, p45);
+		window.DrawLineInSpace(p42, p46);
+		window.DrawLineInSpace(p43, p47);
+		window.DrawLineInSpace(p40, p47);
 
 				if(GetAsyncKeyState(VK_DOWN)) // the DOWN arrow was pressed, let's do something
 		{
@@ -147,29 +142,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	// rotate view position
 
-	/*for(int i = 0; i < ROTATE_TEST; i++){
-		window.DrawLineOnScreen(p1, p2);
-		window.DrawLineOnScreen(p4, p3);
-
-		window.DrawLineInSpace(p30, p31);
-		window.DrawLineInSpace(p31, p32);
-		window.DrawLineInSpace(p32, p33);
-		window.DrawLineInSpace(p33, p30);
-		window.DrawLineInSpace(p34, p35);
-		window.DrawLineInSpace(p35, p36);
-		window.DrawLineInSpace(p36, p37);
-		window.DrawLineInSpace(p37, p34);
-		window.DrawLineInSpace(p30, p34);
-		window.DrawLineInSpace(p31, p35);
-		window.DrawLineInSpace(p32, p36);
-		window.DrawLineInSpace(p33, p37);
-						
-		
-
-
-	}*/
 		
 	
 }
