@@ -4,6 +4,7 @@
 #include "..\GraphicsCode\point2d.h"
 #include "Object.h"
 #include "World.h"
+#include "Box.h"
 
 using namespace std;
 
@@ -91,6 +92,11 @@ Object* World::detectCollision(Object* caller)
 	Point2D callerBackLeft(callerObjectX + callerBackVectorX + callerLeftVectorX,
 							callerObjectY + callerBackVectorY + callerLeftVectorY);
 
+	Box callerBox(callerFrontRight,
+				  callerFrontLeft,
+				  callerBackRight,
+				  callerBackLeft);
+
 	for (vector<Object*>::iterator i = objectList.begin(); i < objectList.end(); i++)
 	{
 		if (*i != caller)
@@ -137,25 +143,14 @@ Object* World::detectCollision(Object* caller)
 			Point2D remoteBackLeft(remoteObjectX + remoteBackVectorX + remoteLeftVectorX,
 								   remoteObjectY + remoteBackVectorY + remoteLeftVectorY);
 
+			Box remoteBox(remoteFrontRight,
+						  remoteFrontLeft,
+						  remoteBackRight,
+						  remoteBackLeft);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			if (callerBox.hasCollided(remoteBox) || remoteBox.hasCollided(callerBox))
+				return *i;
 		}
-
-
 	}
-	Object* temp = new Object();
-	return temp;
+	return NULL;
 }
