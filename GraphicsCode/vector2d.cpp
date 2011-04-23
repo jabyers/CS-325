@@ -102,3 +102,8 @@ void Vector2D::setFromString(std::string &s)
 	//eat the characters read
 
 }
+
+float Vector2D::dotProduct(Vector2D &v)
+{
+	return x * v.getX() + y * v.getY();
+}

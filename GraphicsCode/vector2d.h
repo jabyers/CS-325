@@ -30,4 +30,5 @@ public:
 	void setAngle(float angle);
 	std::string toString();
 	void setFromString(std::string &s);
+	float dotProduct(Vector2D &v);
 };
