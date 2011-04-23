@@ -2,6 +2,9 @@
 #define OBJECT_H
 
 #include <iostream>
+#include "Object.h"
+#include "..\GraphicsCode\vector2d.h"
+#include "..\GraphicsCode\point2d.h"
 using namespace std;
 
 class Object 
@@ -10,30 +13,47 @@ public:
 	// List of class variables
 	int speed;
 	int maxSpeed;
-	double xcoord;
-	double ycoord;
-	double direction;
+//	double xcoord;
+//	double ycoord;
+	Point2D location;
+	Vector2D direction;
 	int height;
 	int width;
+	int length;
 	bool alive;
 	bool isKillable;
 		
 	// List of Methods
 	Object();
-	Object(int dSpeed, double dDirection, double dX, double dY, bool dKillable, 
-		int dmaxSpeed, int dHeight, int dWeigth, bool dAlive);
+	Object(Object& copyObject);
+	Object(int dSpeed, Vector2D dDirection, Point2D dLocation, bool dKillable, 
+		int dmaxSpeed, int dHeight, int dWidth, int dLength, bool dAlive);
 	~Object();
 
 	int getSpeed();
-	void setSpeed(int newSpeed);
-	double getLocation();
-	void setLocation(double newX, double newY);
-	double getDirection();
-	void setDirection(double newDirection);
-	double getHeight();
-	void setHeight(int height);
-	void Move(int speed);
-	void Shoot();
-	void Die();
+	bool setSpeed(int newSpeed);
+
+
+
+	Point2D getLocation();
+	bool setLocation(float newX, float newY);
+	bool setLocation(Point2D newLocation);
+
+	Vector2D getDirection();
+	bool setDirection(Vector2D newDirection);
+
+	int getHeight();
+	bool setHeight(int newHeight);
+
+	int getWidth();
+	bool setWidth(int newWidth);
+
+	int getLength();
+	bool setLength(int newLength);
+
+
+	void move();
+	void shoot();
+	bool die();
 };
 #endif

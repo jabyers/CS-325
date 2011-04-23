@@ -1,102 +1,204 @@
 #include <iostream>
 #include "Object.h"
+#include "..\GraphicsCode\vector2d.h"
+#include "..\GraphicsCode\point2d.h"
 
 using namespace std;
 
-	//Default Constructor
+	/**
+	*	Default Constructor
+	*/
 	Object::Object()
 	{
-		speed = 0;
-		maxSpeed = 0;
-		xcoord = 0;
-		ycoord = 0;
-		direction = 0;
-		height = 0;
-		width = 0;
-		alive = 0;
-		isKillable = 0;
+
 	}
 
-	//Initializing Constructor
-	Object::Object(int dSpeed, double dDirection, double dX, double dY, 
-		bool dKillable, int dmaxSpeed, int dHeight, int dWeigth, bool dAlive)
+	/**
+	*	Copy Constructor
+	*/
+	Object::Object(Object& copyObject)
+	{
+		speed = copyObject.speed;
+		maxSpeed = copyObject.maxSpeed;
+		location = copyObject.location;
+		direction = copyObject.direction;
+		height = copyObject.height;
+		width = copyObject.width;
+		length = copyObject.length;
+		alive = copyObject.alive;
+		isKillable = copyObject.isKillable;
+	}
+
+	/**
+	*	Initializing Constructor
+	*/
+	Object::Object(int dSpeed, Vector2D dDirection, Point2D dLocation, bool dKillable, 
+		int dMaxSpeed, int dHeight, int dWidth, int dLength, bool dAlive)
 	{
 		speed = dSpeed;
-		maxSpeed = dmaxSpeed;
-		xcoord = dX;
-		ycoord = dY;
+		maxSpeed = dMaxSpeed;
+		location = dLocation;
 		direction = dDirection;
 		height = dHeight;
-		width = dWeigth;
+		width = dWidth;
+		length = dLength;
 		alive = dAlive;
 		isKillable = dKillable;
 	}
 
-	//Object destructor
+	/**
+	*	Object destructor.
+	*/
 	Object::~Object()
 	{
-		Die();
+		die();
 	}
 
-	//Returns the speed of the Object
+	/**
+	*	Gets the speed of the Object
+	*/
 	int Object::getSpeed()
 	{
 		return speed;
 	}
 
-	//Sets the speed of the Object
-	void Object::setSpeed(int newSpeed)
+	/**
+	*	Sets the speed of the Object
+	*/
+	bool Object::setSpeed(int newSpeed)
 	{
+		if (newSpeed > maxSpeed || newSpeed < -maxSpeed)
+			return false;
 		speed = newSpeed;
+		return true;
 	}
 
-	//Gets the X coordinate of the object
-	double Object::getLocation()
+	/**
+	*	Gets the location of the object
+	*/
+	Point2D Object::getLocation()
 	{
-		return xcoord;
+		return location;
 	}
 
-	//Sets the X coordinate for the location of the object.
-	void Object::setLocation(double newX, double newY)
+	/**
+	*	Sets the location of the object given coordinates.
+	*/
+	bool Object::setLocation(float newX, float newY)
 	{
-		xcoord = newX;
+		location.setXY(newX, newY);
+		return true;
 	}
 
-	//Gets the direction of the Object
-	double Object::getDirection()
+	/**
+	*	Sets the location of the object given a point.
+	*/
+	bool Object::setLocation(Point2D newLocation)
+	{
+		location = newLocation;
+		return true;
+	}
+
+	/**
+	*	Gets the direction of the object.
+	*/
+	Vector2D Object::getDirection()
 	{
 		return direction;
 	}
 
-	//Sets the direction of the Object
-	void Object::setDirection(double newDirection)
+	/**
+	*	Sets the direction of the object given a vector.
+	*/
+	bool Object::setDirection(Vector2D newDirection)
 	{
 		direction = newDirection;
+		return true;
 	}
 
-	double getHeight()
+	/**
+	*	Gets the height of the object.
+	*/
+	int Object::getHeight()
 	{
 		return height;
 	}
-	void setHeight(int newHeight)
+
+	/**
+	*	Sets the height of the object.
+	*/
+	bool Object::setHeight(int newHeight)
 	{
+		if (newHeight <= 0)
+			return false;
 		height = newHeight;
+		return true;
 	}
 
-	void Object::Move(int speed)
+	/**
+	*	Gets the width of the object.
+	*/
+	int Object::getWidth()
 	{
-		//vector * speed = vector with some length to calc new x and y
+		return width;
 	}
 
-	void Object::Shoot()
+	/**
+	*	Sets the width of the object.
+	*/
+	bool Object::setWidth(int newWidth)
 	{
-		
+		if (newWidth <= 0)
+			return false;
+		width = newWidth;
+		return true;
 	}
 
-	void Object::Die()
+	/**
+	*	Gets the length of the object.
+	*/
+	int Object::getLength()
 	{
-		if(isKillable == true)
-		{
-			delete this;
-		}
+		return length;
+	}
+
+	/**
+	*	Sets the length of the object.
+	*/
+	bool Object::setLength(int newLength)
+	{
+		if (newLength <= 0)
+			return false;
+		length = newLength;
+		return true;
+	}
+
+	/**
+	*	Moves the object to its new location with the current speed and direction.
+	*/
+	void Object::move()
+	{
+		// need to detect collisions
+
+		location.setXY(location.getX() + direction.getX() * speed,
+					   location.getY() + direction.getY() * speed);
+	}
+
+	/**
+	*	Spawns a new bullet object with the current direction.
+	*/
+	void Object::shoot()
+	{
+		// world.createObject(blah blah)
+	}
+
+	/**
+	*	Destroyes the object.
+	*/
+	bool Object::die()
+	{
+		if (!isKillable)
+			return false;
+		delete this;
+		return true;
 	}
