@@ -6,16 +6,16 @@
 using namespace std;
 
 	/**
-	*	Default Constructor
-	*/
+	 *	Default Constructor.
+	 */
 	Object::Object()
 	{
 
 	}
 
 	/**
-	*	Copy Constructor
-	*/
+	 *	Copy Constructor.
+	 */
 	Object::Object(Object& copyObject)
 	{
 		speed = copyObject.speed;
@@ -30,8 +30,8 @@ using namespace std;
 	}
 
 	/**
-	*	Initializing Constructor
-	*/
+	 *	Initializing Constructor.
+	 */
 	Object::Object(int dSpeed, Vector2D dDirection, Point2D dLocation, bool dKillable, 
 		int dMaxSpeed, int dHeight, int dWidth, int dLength, bool dAlive)
 	{
@@ -55,16 +55,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the speed of the Object
-	*/
+	 *	Gets the speed of the Object.
+	 */
 	int Object::getSpeed()
 	{
 		return speed;
 	}
 
 	/**
-	*	Sets the speed of the Object
-	*/
+	 *	Sets the speed of the Object.
+	 */
 	bool Object::setSpeed(int newSpeed)
 	{
 		if (newSpeed > maxSpeed || newSpeed < -maxSpeed)
@@ -74,16 +74,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the location of the object
-	*/
+	 *	Gets the location of the object.
+	 */
 	Point2D Object::getLocation()
 	{
 		return location;
 	}
 
 	/**
-	*	Sets the location of the object given coordinates.
-	*/
+	 *	Sets the location of the object given coordinates.
+	 */
 	bool Object::setLocation(float newX, float newY)
 	{
 		location.setXY(newX, newY);
@@ -91,8 +91,8 @@ using namespace std;
 	}
 
 	/**
-	*	Sets the location of the object given a point.
-	*/
+	 *	Sets the location of the object given a point.
+	 */
 	bool Object::setLocation(Point2D newLocation)
 	{
 		location = newLocation;
@@ -100,16 +100,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the direction of the object.
-	*/
+	 *	Gets the direction of the object.
+	 */
 	Vector2D Object::getDirection()
 	{
 		return direction;
 	}
 
 	/**
-	*	Sets the direction of the object given a vector.
-	*/
+	 *	Sets the direction of the object given a vector.
+	 */
 	bool Object::setDirection(Vector2D newDirection)
 	{
 		direction = newDirection;
@@ -117,16 +117,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the height of the object.
-	*/
+	 *	Gets the height of the object.
+	 */
 	int Object::getHeight()
 	{
 		return height;
 	}
 
 	/**
-	*	Sets the height of the object.
-	*/
+	 *	Sets the height of the object.
+	 */
 	bool Object::setHeight(int newHeight)
 	{
 		if (newHeight <= 0)
@@ -136,16 +136,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the width of the object.
-	*/
+	 *	Gets the width of the object.
+	 */
 	int Object::getWidth()
 	{
 		return width;
 	}
 
 	/**
-	*	Sets the width of the object.
-	*/
+	 *	Sets the width of the object.
+	 */
 	bool Object::setWidth(int newWidth)
 	{
 		if (newWidth <= 0)
@@ -155,16 +155,16 @@ using namespace std;
 	}
 
 	/**
-	*	Gets the length of the object.
-	*/
+	 *	Gets the length of the object.
+	 */
 	int Object::getLength()
 	{
 		return length;
 	}
 
 	/**
-	*	Sets the length of the object.
-	*/
+	 *	Sets the length of the object.
+	 */
 	bool Object::setLength(int newLength)
 	{
 		if (newLength <= 0)
@@ -174,8 +174,8 @@ using namespace std;
 	}
 
 	/**
-	*	Moves the object to its new location with the current speed and direction.
-	*/
+	 *	Moves the object to its new location with the current speed and direction.
+	 */
 	void Object::move()
 	{
 		// need to detect collisions
@@ -185,16 +185,16 @@ using namespace std;
 	}
 
 	/**
-	*	Spawns a new bullet object with the current direction.
-	*/
+	 *	Spawns a new bullet object with the current direction.
+	 */
 	void Object::shoot()
 	{
 		// world.createObject(blah blah)
 	}
 
 	/**
-	*	Destroyes the object.
-	*/
+	 *	Destroyes the object.
+	 */
 	bool Object::die()
 	{
 		if (!isKillable)

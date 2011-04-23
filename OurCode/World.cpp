@@ -49,70 +49,109 @@ void World::tick()
 
 Object* World::detectCollision(Object* caller)
 {
-//		caller.getX();
-//		caller.getY();
-//		caller.getHeight();
-//		caller.getWidth();
+	Object tempcallerObject = Object(*caller);
+
+	float callerObjectLength = tempcallerObject.getLength() / 2;
+	float callerObjectWidth = tempcallerObject.getWidth() / 2;
+	float callerObjectX = tempcallerObject.getLocation().getX();
+	float callerObjectY = tempcallerObject.getLocation().getY();
+
+	Vector2D callerForwardVector = tempcallerObject.getDirection();
+
+	Vector2D callerRightVector = tempcallerObject.getDirection();
+	callerRightVector.rotate(90.0);
+
+	Vector2D callerBackVector = tempcallerObject.getDirection();
+	callerBackVector.rotate(180.0);
+
+	Vector2D callerLeftVector = tempcallerObject.getDirection();
+	callerLeftVector.rotate(270.0);
+
+	float callerForwardVectorX = callerForwardVector.getX() * callerObjectLength;
+	float callerForwardVectorY = callerForwardVector.getY() * callerObjectLength;
+
+	float callerRightVectorX = callerRightVector.getX() * callerObjectWidth;
+	float callerRightVectorY = callerRightVector.getY() * callerObjectWidth;
+
+	float callerBackVectorX = callerBackVector.getX() * callerObjectLength;
+	float callerBackVectorY = callerBackVector.getY() * callerObjectLength;
+			
+	float callerLeftVectorX = callerLeftVector.getX() * callerObjectWidth;
+	float callerLeftVectorY = callerLeftVector.getY() * callerObjectWidth;
+
+	Point2D callerFrontRight(callerObjectX + callerForwardVectorX + callerRightVectorX,
+							    callerObjectY + callerForwardVectorY + callerRightVectorY);
+
+	Point2D callerFrontLeft(callerObjectX + callerForwardVectorX + callerLeftVectorX,
+							callerObjectY + callerForwardVectorY + callerLeftVectorY);
+
+	Point2D callerBackRight(callerObjectX + callerBackVectorX + callerRightVectorX,
+							callerObjectY + callerBackVectorY + callerRightVectorY);
+
+	Point2D callerBackLeft(callerObjectX + callerBackVectorX + callerLeftVectorX,
+							callerObjectY + callerBackVectorY + callerLeftVectorY);
 
 	for (vector<Object*>::iterator i = objectList.begin(); i < objectList.end(); i++)
 	{
 		if (*i != caller)
 		{
-			Object tempObject = Object(**i);
+			Object tempRemoteObject = Object(**i);
 
-			float objectLength = tempObject.getLength() / 2;
-			float objectWidth = tempObject.getWidth() / 2;
-			float objectX = tempObject.getLocation().getX();
-			float objectY = tempObject.getLocation().getY();
+			float remoteObjectLength = tempRemoteObject.getLength() / 2;
+			float remoteObjectWidth = tempRemoteObject.getWidth() / 2;
+			float remoteObjectX = tempRemoteObject.getLocation().getX();
+			float remoteObjectY = tempRemoteObject.getLocation().getY();
 
+			Vector2D remoteForwardVector = tempRemoteObject.getDirection();
 
+			Vector2D remoteRightVector = tempRemoteObject.getDirection();
+			remoteRightVector.rotate(90.0);
 
+			Vector2D remoteBackVector = tempRemoteObject.getDirection();
+			remoteBackVector.rotate(180.0);
 
+			Vector2D remoteLeftVector = tempRemoteObject.getDirection();
+			remoteLeftVector.rotate(270.0);
 
-			Vector2D forwardVector = tempObject.getDirection();
+			float remoteForwardVectorX = remoteForwardVector.getX() * remoteObjectLength;
+			float remoteForwardVectorY = remoteForwardVector.getY() * remoteObjectLength;
 
-			Point2D frontPoint(forwardVector.getX() * objectLength + objectX,
-							   forwardVector.getY() * objectLength + objectY);
+			float remoteRightVectorX = remoteRightVector.getX() * remoteObjectWidth;
+			float remoteRightVectorY = remoteRightVector.getY() * remoteObjectWidth;
 
-			Vector2D rightVector = tempObject.getDirection();
-			rightVector.rotate(90.0);
-			Point2D rightPoint(rightVector.getX() * objectWidth + objectX,
-							   rightVector.getY() * objectWidth + objectY);
+			float remoteBackVectorX = remoteBackVector.getX() * remoteObjectLength;
+			float remoteBackVectorY = remoteBackVector.getY() * remoteObjectLength;
+			
+			float remoteLeftVectorX = remoteLeftVector.getX() * remoteObjectWidth;
+			float remoteLeftVectorY = remoteLeftVector.getY() * remoteObjectWidth;
 
-			Vector2D backVector = tempObject.getDirection();
-			backVector.rotate(180.0);
-			Point2D backPoint(backVector.getX() * objectLength + objectX,
-							  backVector.getY() * objectLength + objectY);
+			Point2D remoteFrontRight(remoteObjectX + remoteForwardVectorX + remoteRightVectorX,
+									 remoteObjectY + remoteForwardVectorY + remoteRightVectorY);
 
-			Vector2D leftVector = tempObject.getDirection();
-			leftVector.rotate(270.0);
-			Point2D leftPoint(leftVector.getX() * objectWidth + objectX,
-							  leftVector.getY() * objectWidth + objectY);
+			Point2D remoteFrontLeft(remoteObjectX + remoteForwardVectorX + remoteLeftVectorX,
+									remoteObjectY + remoteForwardVectorY + remoteLeftVectorY);
 
+			Point2D remoteBackRight(remoteObjectX + remoteBackVectorX + remoteRightVectorX,
+									remoteObjectY + remoteBackVectorY + remoteRightVectorY);
 
-
-
-
-			/*
-			Point2D objectLocation = (**i).getLocation();
-			Vector2D objectDirection
-			float objectX = objectLocation.getX();
-			float objectY = objectLocation.getY();
-			float objectWidth = (**i).getWidth() / 2.0;
-			float objectLength = (**i).getLength() / 2.0;
-
-			Point2D objectFrontLeft(objectX - objectWidth, objectY + objectLength);
-			Point2D objectFrontRight(objectX + objectWidth, objectY + objectLength);
-			Point2D objectBackLeft(objectX - objectWidth, objectY - objectLength);
-			Point2D objectBackRight(objectX - objectWidth, objectY - objectLength);
-			*/
+			Point2D remoteBackLeft(remoteObjectX + remoteBackVectorX + remoteLeftVectorX,
+								   remoteObjectY + remoteBackVectorY + remoteLeftVectorY);
 
 
 
 
 
 
-//			float
+
+
+
+
+
+
+
+
+
+
 		}
 
 
